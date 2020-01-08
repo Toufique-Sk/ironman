@@ -1,4 +1,52 @@
+spring:
+  profiles:
+    active: default
+  master:
+    datasource:
+      type: com.zaxxer.hikari.HikariDataSource
+      driver-class-name: com.mysql.jdbc.Driver
+      jdbc-url: jdbc:mysql://localhost:3306/
+      username: root
+      password: palash$2
+      testWhileIdle: true
+      validationQuery: SELECT 1
+      hikari:
+        maximumPoolSize: 5
+        idle-timeout: 10000
+  application:
+    name: ironman-api
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration
+  cache.type: redis
+  jpa:
+    hibernate:
+      ddl-auto: none
+      use-new-id-generator-mappings: false
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+    properties:
+      hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
+      hibernate.id.new_generator_mappings: false
+
 server:
   port: 8080
   servlet:
-    context-path: /ironman
+    context-path: /ironman-api
+
+
+management:
+  server.port: 9010
+  endpoints:
+    web:
+      base-path: /morpheus-api/actuator
+  health:
+    status.order: UP,DOWN,OUT_OF_SERVICE,UNKNOWN
+    elasticsearch.enabled: false
+  endpoint:
+    health:
+      show-details: always
+    info:
+      enabled: true
+  security:
+    enabled: false

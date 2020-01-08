@@ -1,13 +1,13 @@
 spring:
   profiles:
-    active: uat
+    active: default
   master:
     datasource:
       type: com.zaxxer.hikari.HikariDataSource
       driver-class-name: com.mysql.jdbc.Driver
-      jdbc-url:
-      username:
-      password:
+      jdbc-url: jdbc:mysql://localhost:3306/
+      username: root
+      password: palash$2
       testWhileIdle: true
       validationQuery: SELECT 1
       hikari:
@@ -33,8 +33,6 @@ server:
   port: 8080
   servlet:
     context-path: /ironman-api
-
-projectName: ${MY_POD_NAME}
 
 
 management:

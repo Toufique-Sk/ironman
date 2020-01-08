@@ -1,41 +1,24 @@
-package com.interviewbit.ironman.core.models;
+package com.interviewbit.ironman.dtos;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name ="IB_REGISTRATION")
-public class Registration {
-
-    @Column(name = "USER_ID")
-    @Id
+public class RegistrationDto {
     private String userId;
 
-    @Column(name = "USER_NAME")
     private String userName;
 
-    @Column(name = "USER_EMAIL")
     private String userEmail;
 
-    @Column(name = "USER_PASSWORD")
-    @Transient
     private String userPassword;
 
-    @Column(name ="LANDMARK")
     private String landmark;
 
-    @Column(name = "CITY")
     private String city;
 
-    @Column(name = "DISTRICT")
     private  String dist;
 
-    @Column(name = "STATE")
     private String state;
 
-    @Column(name = "COUNTRY")
     private String country;
 
-    @Column(name = "MOBILE_NO")
     private String mobileNo;
 
     public String getUserId() {
@@ -68,10 +51,6 @@ public class Registration {
 
     public void setUserPassword(String userPassword) {
         this.userPassword = userPassword;
-    }
-
-    public String getMobileNo() {
-        return mobileNo;
     }
 
     public String getLandmark() {
@@ -112,6 +91,10 @@ public class Registration {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public String getMobileNo() {
+        return mobileNo;
     }
 
     public void setMobileNo(String mobileNo) {
