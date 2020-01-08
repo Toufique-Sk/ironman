@@ -6,6 +6,9 @@
 	<modules>
 		<module>ironman-core</module>
 		<module>ironman-api</module>
+        <module>ironman-common</module>
+		<module>ironman-service</module>
+		<module>ironman-dtos</module>
 	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
