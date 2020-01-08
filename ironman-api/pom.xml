@@ -18,7 +18,7 @@
             </properties>
         </profile>
     </profiles>
-    <packaging>${packaging.type}</packaging>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
