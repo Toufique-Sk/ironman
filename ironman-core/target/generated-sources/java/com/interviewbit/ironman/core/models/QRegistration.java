@@ -10,10 +10,10 @@ import com.querydsl.core.types.Path;
 
 
 /**
- * QRegistration is a Querydsl query type for Registration
+ * QRegistration is a Querydsl query type for UserDetails
  */
 @Generated("com.querydsl.codegen.EntitySerializer")
-public class QRegistration extends EntityPathBase<Registration> {
+public class QRegistration extends EntityPathBase<UserDetails> {
 
     private static final long serialVersionUID = 1464937471L;
 
@@ -44,15 +44,15 @@ public class QRegistration extends EntityPathBase<Registration> {
     public final StringPath userPassword = createString("userPassword");
 
     public QRegistration(String variable) {
-        super(Registration.class, forVariable(variable));
+        super(UserDetails.class, forVariable(variable));
     }
 
-    public QRegistration(Path<? extends Registration> path) {
+    public QRegistration(Path<? extends UserDetails> path) {
         super(path.getType(), path.getMetadata());
     }
 
     public QRegistration(PathMetadata metadata) {
-        super(Registration.class, metadata);
+        super(UserDetails.class, metadata);
     }
 
 }
