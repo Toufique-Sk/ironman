@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<packaging>pom</packaging>
 	<modules>
+		<module>ironman-dtos</module>
 		<module>ironman-core</module>
-		<module>ironman-api</module>
         <module>ironman-common</module>
 		<module>ironman-service</module>
-		<module>ironman-dtos</module>
+		<module>ironman-api</module>
 	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
