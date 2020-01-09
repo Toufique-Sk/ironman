@@ -1,6 +1,9 @@
 package com.interviewbit.ironman.core.models;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name ="IB_REGISTRATION")
@@ -17,7 +20,6 @@ public class Registration {
     private String userEmail;
 
     @Column(name = "USER_PASSWORD")
-    @Transient
     private String userPassword;
 
     @Column(name ="LANDMARK")
@@ -37,6 +39,16 @@ public class Registration {
 
     @Column(name = "MOBILE_NO")
     private String mobileNo;
+
+    @Column(name = "ACCOUNT_STATUS")
+    private Boolean accountStatus;
+
+    @Column(name = "OTP")
+    private String otp;
+
+    @Column(name = "CREATED_DATE")
+    @CreationTimestamp
+    private Date createdDate;
 
     public String getUserId() {
         return userId;
@@ -90,6 +102,14 @@ public class Registration {
         this.city = city;
     }
 
+    public String getOtp() {
+        return otp;
+    }
+
+    public void setOtp(String otp) {
+        this.otp = otp;
+    }
+
     public String getDist() {
         return dist;
     }
@@ -116,5 +136,21 @@ public class Registration {
 
     public void setMobileNo(String mobileNo) {
         this.mobileNo = mobileNo;
+    }
+
+    public Boolean getAccountStatus() {
+        return accountStatus;
+    }
+
+    public void setAccountStatus(Boolean accountStatus) {
+        this.accountStatus = accountStatus;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 }
