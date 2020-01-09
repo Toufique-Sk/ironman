@@ -32,7 +32,6 @@ public class RegistrationServiceImpl implements RegistrationService {
         registration.setUserPassword(passwordEncoder.encode(registration.getUserPassword()));
         String receivedOtp = sendOtpService.sendOtp(registration.getMobileNo());
         registration.setOtp(String.valueOf(receivedOtp.hashCode()));
-
         registrationRepository.save(registration);
         return registrationDto.getUserName()+": Please verify your account " + receivedOtp;
     }
