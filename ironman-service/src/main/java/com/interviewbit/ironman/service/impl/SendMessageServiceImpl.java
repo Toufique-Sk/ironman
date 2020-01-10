@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.Random;
 
 @Service
-public class SendOtpServiceImpl implements SendOtpService {
+public class SendMessageServiceImpl implements SendOtpService {
 
     private final static String API_KEY = "c5988bb8-33d3-11ea-9fa5-0200cd936042/";
     private final static String sendSmsBaseUrl = "https://2factor.in/API/V1/";

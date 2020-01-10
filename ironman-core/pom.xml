@@ -46,6 +46,11 @@
             <artifactId>querydsl-apt</artifactId>
             <version>4.1.4</version>
         </dependency>
+        <dependency>
+            <groupId>com.interviewbit</groupId>
+            <artifactId>ironman-dtos</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
