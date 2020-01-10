@@ -25,11 +25,10 @@ public class RegistrationServiceImpl implements RegistrationService {
 
     @Override
     public String registerUser(RegistrationDto registrationDto) {
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String registrationJson = IronmanUtils.getGson().toJson(registrationDto);
         UserDetails userDetails = IronmanUtils.getGson().fromJson(registrationJson, UserDetails.class);
         userDetails.setAccountStatus(false);
-        userDetails.setUserPassword(passwordEncoder.encode(userDetails.getUserPassword()));
+        userDetails.setUserPassword(IronmanUtils.passwordHashFunction(userDetails.getUserPassword()));
         String receivedOtp = sendOtpService.sendOtp(userDetails.getMobileNo());
         userDetails.setOtp(String.valueOf(receivedOtp.hashCode()));
         registrationRepository.save(userDetails);

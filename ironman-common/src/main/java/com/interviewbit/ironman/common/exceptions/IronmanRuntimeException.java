@@ -2,12 +2,12 @@ package com.interviewbit.ironman.common.exceptions;
 
 import com.interviewbit.ironman.dtos.ErrorResponseDto;
 
-public class IronmanRuntmeException extends RuntimeException {
+public class IronmanRuntimeException extends RuntimeException {
 
     private String errorCode;
     private String errorMessage;
 
-    public IronmanRuntmeException(String errorCode, String errorMessage){
+    public IronmanRuntimeException(String errorCode, String errorMessage){
         this.errorCode = errorCode;
         this.errorMessage = errorMessage;
     }
