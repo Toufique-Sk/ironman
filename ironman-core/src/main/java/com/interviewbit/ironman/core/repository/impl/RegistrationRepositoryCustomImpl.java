@@ -1,6 +1,6 @@
 package com.interviewbit.ironman.core.repository.impl;
 
-import com.interviewbit.ironman.core.models.QRegistration;
+import com.interviewbit.ironman.core.models.QUserDetails;
 import com.interviewbit.ironman.core.repository.RegistrationRepositoryCustom;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.querydsl.jpa.impl.JPAUpdateClause;
@@ -19,7 +19,7 @@ public class RegistrationRepositoryCustomImpl implements RegistrationRepositoryC
     @Transactional
     public void updateAccountStatus(String userId) {
 
-        QRegistration registration = QRegistration.registration;
+        QUserDetails registration = QUserDetails.userDetails;
         JPAUpdateClause updateClause = queryFactory.update(registration)
                 .set(registration.accountStatus, true)
                 .where(registration.userId.eq(userId));

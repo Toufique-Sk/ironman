@@ -27,7 +27,7 @@ spring:
       hibernate.id.new_generator_mappings: false
 
 server:
-  port: 8081
+  port: 8080
   servlet:
     context-path: /ironman-api
 

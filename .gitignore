@@ -2,3 +2,4 @@
 .idea
 *.class
 **/target/**
+*.kotlin_module
