@@ -37,6 +37,9 @@ public class UserDetails {
     @Column(name = "COUNTRY")
     private String country;
 
+    @Column(name = "PINCODE")
+    private Integer pincode;
+
     @Column(name = "MOBILE_NO")
     private String mobileNo;
 
@@ -152,5 +155,13 @@ public class UserDetails {
 
     public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
+    }
+
+    public Integer getPincode() {
+        return pincode;
+    }
+
+    public void setPincode(Integer pincode) {
+        this.pincode = pincode;
     }
 }

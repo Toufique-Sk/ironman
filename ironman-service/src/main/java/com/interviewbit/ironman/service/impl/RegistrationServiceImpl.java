@@ -1,5 +1,6 @@
 package com.interviewbit.ironman.service.impl;
 
+import com.interviewbit.ironman.common.exceptions.IronmanRuntimeException;
 import com.interviewbit.ironman.common.utils.IronmanUtils;
 import com.interviewbit.ironman.core.models.UserDetails;
 import com.interviewbit.ironman.core.repository.RegistrationRepository;
@@ -10,6 +11,8 @@ import com.interviewbit.ironman.service.SendOtpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class RegistrationServiceImpl implements RegistrationService {
@@ -33,6 +36,9 @@ public class RegistrationServiceImpl implements RegistrationService {
         userDetails.setUserPassword(IronmanUtils.passwordHashFunction(userDetails.getUserPassword()));
         String receivedOtp = sendOtpService.sendOtp(userDetails.getMobileNo());
         userDetails.setOtp(String.valueOf(receivedOtp.hashCode()));
+        if(isUserIdPresent(userDetails.getUserId())){
+            throw new IronmanRuntimeException("Err-104", "UserId in use");
+        }
         registrationRepository.save(userDetails);
         return registrationDto.getUserName()+": Please verify your account ";
     }
@@ -48,5 +54,13 @@ public class RegistrationServiceImpl implements RegistrationService {
             return false;
         }
         return true;
+    }
+
+    private Boolean isUserIdPresent(String userId){
+        Optional<UserDetails> userDetails = registrationRepository.findById(userId);
+        if(userDetails.isPresent()){
+            return true;
+        }
+        return false;
     }
 }

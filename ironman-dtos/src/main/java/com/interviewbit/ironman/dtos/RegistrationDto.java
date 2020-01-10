@@ -19,6 +19,8 @@ public class RegistrationDto {
 
     private String country;
 
+    private Integer pincode;
+
     private String mobileNo;
 
     public String getUserId() {
@@ -99,5 +101,13 @@ public class RegistrationDto {
 
     public void setMobileNo(String mobileNo) {
         this.mobileNo = mobileNo;
+    }
+
+    public Integer getPincode() {
+        return pincode;
+    }
+
+    public void setPincode(Integer pincode) {
+        this.pincode = pincode;
     }
 }
