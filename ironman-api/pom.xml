@@ -18,7 +18,7 @@
             </properties>
         </profile>
     </profiles>
-    <packaging>${packaging.type}</packaging>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
@@ -30,6 +30,12 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>2.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.interviewbit</groupId>
+            <artifactId>ironman-service</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 

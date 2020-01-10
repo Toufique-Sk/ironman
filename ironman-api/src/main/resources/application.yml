@@ -1,18 +1,15 @@
 spring:
   profiles:
-    active: uat
+    active: default
   master:
     datasource:
       type: com.zaxxer.hikari.HikariDataSource
       driver-class-name: com.mysql.jdbc.Driver
-      jdbc-url:
-      username:
-      password:
+      jdbc-url: jdbc:mysql://localhost:3306/interviewbit
+      username: root
+      password: palash$2
       testWhileIdle: true
       validationQuery: SELECT 1
-      hikari:
-        maximumPoolSize: 5
-        idle-timeout: 10000
   application:
     name: ironman-api
   autoconfigure:
@@ -33,8 +30,6 @@ server:
   port: 8080
   servlet:
     context-path: /ironman-api
-
-projectName: ${MY_POD_NAME}
 
 
 management:
