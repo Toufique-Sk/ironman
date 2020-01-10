@@ -1,7 +1,7 @@
 package com.interviewbit.ironman.service.impl;
 
 import com.interviewbit.ironman.common.utils.IronmanUtils;
-import com.interviewbit.ironman.core.models.Registration;
+import com.interviewbit.ironman.core.models.UserDetails;
 import com.interviewbit.ironman.core.repository.RegistrationRepository;
 import com.interviewbit.ironman.core.repository.RegistrationRepositoryCustom;
 import com.interviewbit.ironman.dtos.RegistrationDto;
@@ -23,17 +23,18 @@ public class RegistrationServiceImpl implements RegistrationService {
     @Autowired
     private SendOtpService sendOtpService;
 
+
+
     @Override
     public String registerUser(RegistrationDto registrationDto) {
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String registrationJson = IronmanUtils.getGson().toJson(registrationDto);
-        Registration registration = IronmanUtils.getGson().fromJson(registrationJson, Registration.class);
-        registration.setAccountStatus(false);
-        registration.setUserPassword(passwordEncoder.encode(registration.getUserPassword()));
-        String receivedOtp = sendOtpService.sendOtp(registration.getMobileNo());
-        registration.setOtp(String.valueOf(receivedOtp.hashCode()));
-        registrationRepository.save(registration);
-        return registrationDto.getUserName()+": Please verify your account " + receivedOtp;
+        UserDetails userDetails = IronmanUtils.getGson().fromJson(registrationJson, UserDetails.class);
+        userDetails.setAccountStatus(false);
+        userDetails.setUserPassword(IronmanUtils.passwordHashFunction(userDetails.getUserPassword()));
+        String receivedOtp = sendOtpService.sendOtp(userDetails.getMobileNo());
+        userDetails.setOtp(String.valueOf(receivedOtp.hashCode()));
+        registrationRepository.save(userDetails);
+        return registrationDto.getUserName()+": Please verify your account ";
     }
 
     @Override
@@ -48,10 +49,4 @@ public class RegistrationServiceImpl implements RegistrationService {
         }
         return true;
     }
-
-    private String getUserMobileNo(String userId){
-        return registrationRepository.findById(userId).get().getMobileNo();
-    }
-
-
 }

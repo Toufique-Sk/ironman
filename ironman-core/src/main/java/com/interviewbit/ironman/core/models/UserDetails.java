@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Entity
 @Table(name ="IB_REGISTRATION")
-public class Registration {
+public class UserDetails {
 
     @Column(name = "USER_ID")
     @Id
