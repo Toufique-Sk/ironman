@@ -23,6 +23,8 @@ public class RegistrationServiceImpl implements RegistrationService {
     @Autowired
     private SendOtpService sendOtpService;
 
+
+
     @Override
     public String registerUser(RegistrationDto registrationDto) {
         String registrationJson = IronmanUtils.getGson().toJson(registrationDto);
@@ -32,7 +34,7 @@ public class RegistrationServiceImpl implements RegistrationService {
         String receivedOtp = sendOtpService.sendOtp(userDetails.getMobileNo());
         userDetails.setOtp(String.valueOf(receivedOtp.hashCode()));
         registrationRepository.save(userDetails);
-        return registrationDto.getUserName()+": Please verify your account " + receivedOtp;
+        return registrationDto.getUserName()+": Please verify your account ";
     }
 
     @Override
@@ -47,10 +49,4 @@ public class RegistrationServiceImpl implements RegistrationService {
         }
         return true;
     }
-
-    private String getUserMobileNo(String userId){
-        return registrationRepository.findById(userId).get().getMobileNo();
-    }
-
-
 }
