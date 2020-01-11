@@ -6,6 +6,8 @@ import java.util.Date;
  * Created by Toufique on 11/1/20.
  */
 public class RentDto {
+    private String userId;
+
     private String laptopId;
 
     private Date tentetiveLendingDate;
@@ -34,5 +36,13 @@ public class RentDto {
 
     public void setTentativereturnDate(Date tentativereturnDate) {
         this.tentativereturnDate = tentativereturnDate;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }

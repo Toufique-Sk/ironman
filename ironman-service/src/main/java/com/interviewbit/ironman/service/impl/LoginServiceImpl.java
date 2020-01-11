@@ -4,20 +4,19 @@ package com.interviewbit.ironman.service.impl;
 import com.interviewbit.ironman.common.exceptions.IronmanRuntimeException;
 import com.interviewbit.ironman.common.utils.IronmanUtils;
 import com.interviewbit.ironman.core.models.UserDetails;
-import com.interviewbit.ironman.core.repository.RegistrationRepository;
+import com.interviewbit.ironman.core.repository.UserDetailsRepository;
 import com.interviewbit.ironman.dtos.LoginDto;
 import com.interviewbit.ironman.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Objects;
 import java.util.Optional;
 
 @Service
 public class LoginServiceImpl implements LoginService {
 
     @Autowired
-    RegistrationRepository registrationRepository;
+    UserDetailsRepository registrationRepository;
 
     public Boolean login(LoginDto loginDto){
         Optional<UserDetails> userDetails = registrationRepository.findById(loginDto.getUserId());

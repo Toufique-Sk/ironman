@@ -15,15 +15,15 @@ import java.util.Date;
 @Table(name ="IB_LAPTOP_DETAILS")
 public class LaptopDetails {
 
-    @Column(name = "LAPTOP_ID")
     @Id
-    private String laptopId;
+    @Column(name = "SERIAL_NO")
+    private String seriallNo;
+
+    @Column(name = "USER_ID")
+    private String userId;
 
     @Column(name = "LAPTOP_NAME")
     private String laptopName;
-
-    @Column(name = "SERIAL_NO")
-    private String seriallNo;
 
     @Column(name = "RAM")
     private String ram;
@@ -49,14 +49,6 @@ public class LaptopDetails {
 
     @Column(name = "IMAGE_TWO_ID")
     private String imageTwoId;
-
-    public String getLaptopId() {
-        return laptopId;
-    }
-
-    public void setLaptopId(String laptopId) {
-        this.laptopId = laptopId;
-    }
 
     public String getLaptopName() {
         return laptopName;
@@ -136,5 +128,13 @@ public class LaptopDetails {
 
     public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }

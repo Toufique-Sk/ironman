@@ -1,10 +1,10 @@
 package com.interviewbit.ironman.core.models;
 
 import com.interviewbit.ironman.dtos.enums.LendStatus;
+import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.annotation.Generated;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -13,6 +13,11 @@ import java.util.Date;
 @Entity
 @Table(name = "IB_LENNDER_LENDING_DETAILS")
 public class LenderLendingDetails {
+
+    @Column(name = "ID")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private String Id;
 
     @Column(name = "LAPTOP_ID")
     private String laptopId;
@@ -26,7 +31,7 @@ public class LenderLendingDetails {
     @Column(name = "TENTATIVE_BORROWING_DATE")
     private Date tentativeBorrowingDate;
 
-    @Column(name = "TENTATIVE_RETURN_Date")
+    @Column(name = "TENTATIVE_RETURN_DATE")
     private String tentativeReturnDate;
 
     @Column(name = "STATUS")
@@ -78,5 +83,13 @@ public class LenderLendingDetails {
 
     public void setBorrowerMobileNo(String borrowerMobileNo) {
         this.borrowerMobileNo = borrowerMobileNo;
+    }
+
+    public String getId() {
+        return Id;
+    }
+
+    public void setId(String id) {
+        Id = id;
     }
 }

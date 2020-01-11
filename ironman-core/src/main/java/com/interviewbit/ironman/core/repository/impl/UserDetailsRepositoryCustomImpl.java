@@ -1,7 +1,9 @@
 package com.interviewbit.ironman.core.repository.impl;
 
 import com.interviewbit.ironman.core.models.QUserDetails;
-import com.interviewbit.ironman.core.repository.RegistrationRepositoryCustom;
+import com.interviewbit.ironman.core.models.UserDetails;
+import com.interviewbit.ironman.core.repository.UserDetailsRepositoryCustom;
+import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.querydsl.jpa.impl.JPAUpdateClause;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import javax.transaction.Transactional;
 
 @Repository
-public class RegistrationRepositoryCustomImpl implements RegistrationRepositoryCustom {
+public class UserDetailsRepositoryCustomImpl implements UserDetailsRepositoryCustom {
 
     @Autowired
     private JPAQueryFactory queryFactory;
@@ -25,4 +27,10 @@ public class RegistrationRepositoryCustomImpl implements RegistrationRepositoryC
                 .where(registration.userId.eq(userId));
         updateClause.execute();
     }
+
+    @Override
+    public String findByMobileNo(String mobileNo) {
+        return null;
+    }
+
 }

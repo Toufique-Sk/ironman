@@ -2,6 +2,7 @@ package com.interviewbit.ironman.core.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -12,6 +13,7 @@ import javax.persistence.Table;
 @Table(name = "IB_LENDING_TABLE")
 public class RentDetails {
 
+    @Id
     @Column(name = "LAPTOP_ID")
     private String LaptopId;
 

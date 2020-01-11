@@ -3,13 +3,12 @@ package com.interviewbit.ironman.service.impl;
 import com.interviewbit.ironman.common.exceptions.IronmanRuntimeException;
 import com.interviewbit.ironman.common.utils.IronmanUtils;
 import com.interviewbit.ironman.core.models.UserDetails;
-import com.interviewbit.ironman.core.repository.RegistrationRepository;
-import com.interviewbit.ironman.core.repository.RegistrationRepositoryCustom;
+import com.interviewbit.ironman.core.repository.UserDetailsRepository;
+import com.interviewbit.ironman.core.repository.UserDetailsRepositoryCustom;
 import com.interviewbit.ironman.dtos.RegistrationDto;
 import com.interviewbit.ironman.service.RegistrationService;
 import com.interviewbit.ironman.service.SendOtpService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -18,10 +17,10 @@ import java.util.Optional;
 public class RegistrationServiceImpl implements RegistrationService {
 
     @Autowired
-    private RegistrationRepository registrationRepository;
+    private UserDetailsRepository registrationRepository;
 
     @Autowired
-    RegistrationRepositoryCustom registrationRepositoryCustom;
+    UserDetailsRepositoryCustom registrationRepositoryCustom;
 
     @Autowired
     private SendOtpService sendOtpService;

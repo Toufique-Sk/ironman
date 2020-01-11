@@ -7,7 +7,7 @@ import java.util.Date;
  */
 public class LaptopDetailsDto {
 
-    private String laptopId;
+    private String userId;
 
     private String laptopName;
 
@@ -22,14 +22,6 @@ public class LaptopDetailsDto {
     private String hdd;
 
     private Integer price;
-
-    public String getLaptopId() {
-        return laptopId;
-    }
-
-    public void setLaptopId(String laptopId) {
-        this.laptopId = laptopId;
-    }
 
     public String getLaptopName() {
         return laptopName;
@@ -85,6 +77,14 @@ public class LaptopDetailsDto {
 
     public void setPrice(Integer price) {
         this.price = price;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }
 
