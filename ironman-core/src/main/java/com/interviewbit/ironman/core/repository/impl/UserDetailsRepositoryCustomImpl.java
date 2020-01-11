@@ -1,5 +1,6 @@
 package com.interviewbit.ironman.core.repository.impl;
 
+
 import com.interviewbit.ironman.core.models.QUserDetails;
 import com.interviewbit.ironman.core.models.UserDetails;
 import com.interviewbit.ironman.core.repository.UserDetailsRepositoryCustom;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Repository
 public class UserDetailsRepositoryCustomImpl implements UserDetailsRepositoryCustom {
@@ -31,6 +33,13 @@ public class UserDetailsRepositoryCustomImpl implements UserDetailsRepositoryCus
     @Override
     public String findByMobileNo(String mobileNo) {
         return null;
+    }
+
+    public List<String> getAllUserDetailByCity(String city)
+    {
+        QUserDetails userDetail = QUserDetails.userDetails;
+        List<String> userdetailbycity = queryFactory.select(userDetail.userId).where(userDetail.city.eq(city)).fetch();
+        return userdetailbycity;
     }
 
 }
