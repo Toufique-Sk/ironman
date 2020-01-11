@@ -8,12 +8,15 @@ import com.interviewbit.ironman.core.repository.LaptopDetailsRepository;
 import com.interviewbit.ironman.dtos.LaptopDetailsDto;
 import com.interviewbit.ironman.service.ListYourLaptopService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 /**
  * Created by Toufique on 11/1/20.
  */
+@Service
+
 public class ListYourLaptopServiceImpl implements ListYourLaptopService {
 
     @Autowired
