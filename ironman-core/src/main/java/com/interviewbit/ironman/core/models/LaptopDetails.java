@@ -22,11 +22,11 @@ public class LaptopDetails {
     @Column(name = "USER_ID")
     private String userId;
 
-    @Column(name = "LAPTOP_NAME")
-    private String laptopName;
+    @Column(name = "LAPTOP_BRAND")
+    private String laptopBrand;
 
     @Column(name = "RAM")
-    private String ram;
+    private Integer ram;
 
     @Column(name = "PROCESSOR")
     private String processor;
@@ -37,7 +37,7 @@ public class LaptopDetails {
     @Column(name = "HDD")
     private String hdd;
 
-    @Column(name = "PRICE")
+    @Column(name = "RENT_PRICE")
     private Integer price;
 
     @CreationTimestamp
@@ -50,12 +50,12 @@ public class LaptopDetails {
     @Column(name = "IMAGE_TWO_ID")
     private String imageTwoId;
 
-    public String getLaptopName() {
-        return laptopName;
+    public String getLaptopBrand() {
+        return laptopBrand;
     }
 
-    public void setLaptopName(String laptopName) {
-        this.laptopName = laptopName;
+    public void setLaptopBrand(String laptopBrand) {
+        this.laptopBrand = laptopBrand;
     }
 
     public String getSeriallNo() {
@@ -66,11 +66,11 @@ public class LaptopDetails {
         this.seriallNo = seriallNo;
     }
 
-    public String getRam() {
+    public Integer getRam() {
         return ram;
     }
 
-    public void setRam(String ram) {
+    public void setRam(Integer ram) {
         this.ram = ram;
     }
 

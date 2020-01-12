@@ -7,7 +7,7 @@ import com.interviewbit.ironman.core.repository.UserDetailsRepository;
 import com.interviewbit.ironman.core.repository.UserDetailsRepositoryCustom;
 import com.interviewbit.ironman.dtos.RegistrationDto;
 import com.interviewbit.ironman.service.RegistrationService;
-import com.interviewbit.ironman.service.SendOtpService;
+import com.interviewbit.ironman.service.SendMessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +23,7 @@ public class RegistrationServiceImpl implements RegistrationService {
     UserDetailsRepositoryCustom registrationRepositoryCustom;
 
     @Autowired
-    private SendOtpService sendOtpService;
+    private SendMessageService sendOtpService;
 
 
 

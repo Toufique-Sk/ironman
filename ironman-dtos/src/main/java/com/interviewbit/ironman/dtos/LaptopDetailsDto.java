@@ -7,13 +7,13 @@ import java.util.Date;
  */
 public class LaptopDetailsDto {
 
-    private String userId;
-
-    private String laptopName;
-
     private String seriallNo;
 
-    private String ram;
+    private String userId;
+
+    private String laptopBrand;
+
+    private Integer ram;
 
     private String processor;
 
@@ -21,15 +21,7 @@ public class LaptopDetailsDto {
 
     private String hdd;
 
-    private Integer price;
-
-    public String getLaptopName() {
-        return laptopName;
-    }
-
-    public void setLaptopName(String laptopName) {
-        this.laptopName = laptopName;
-    }
+    private Integer rentPrice;
 
     public String getSeriallNo() {
         return seriallNo;
@@ -39,11 +31,27 @@ public class LaptopDetailsDto {
         this.seriallNo = seriallNo;
     }
 
-    public String getRam() {
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getLaptopBrand() {
+        return laptopBrand;
+    }
+
+    public void setLaptopName(String laptopBrand) {
+        this.laptopBrand = laptopBrand;
+    }
+
+    public Integer getRam() {
         return ram;
     }
 
-    public void setRam(String ram) {
+    public void setRam(Integer ram) {
         this.ram = ram;
     }
 
@@ -71,20 +79,12 @@ public class LaptopDetailsDto {
         this.hdd = hdd;
     }
 
-    public Integer getPrice() {
-        return price;
+    public Integer getRentPrice() {
+        return rentPrice;
     }
 
-    public void setPrice(Integer price) {
-        this.price = price;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setRentPrice(Integer rentPrice) {
+        this.rentPrice = rentPrice;
     }
 }
 
