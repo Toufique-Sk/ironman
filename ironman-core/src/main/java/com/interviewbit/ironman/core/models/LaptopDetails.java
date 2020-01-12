@@ -26,7 +26,7 @@ public class LaptopDetails {
     private String laptopName;
 
     @Column(name = "RAM")
-    private String ram;
+    private Integer ram;
 
     @Column(name = "PROCESSOR")
     private String processor;
@@ -66,11 +66,11 @@ public class LaptopDetails {
         this.seriallNo = seriallNo;
     }
 
-    public String getRam() {
+    public Integer getRam() {
         return ram;
     }
 
-    public void setRam(String ram) {
+    public void setRam(Integer ram) {
         this.ram = ram;
     }
 

@@ -16,13 +16,16 @@ public class LaptopDetailsRepositoryCustom implements com.interviewbit.ironman.c
     private JPAQueryFactory queryFactory;
     @Autowired
     private UserDetailsRepositoryCustom userDetailsRepositoryCustom;
+
+    private List<LaptopDetails> laptopByCity;
+
     @Override
     public List<LaptopDetails> groupLaptopsByCity(String city)
     {
 
         List<String> userIdDetail = userDetailsRepositoryCustom.getAllUserDetailByCity(city);
         QLaptopDetails laptopDetail = QLaptopDetails.laptopDetails;
-        List<LaptopDetails> laptopByCity = new ArrayList<>();
+
         for(int i=0;i<userIdDetail.size();i++)
         {
             List<LaptopDetails> singleLaptopDetail = queryFactory.select(laptopDetail).where(laptopDetail.userId.eq(userIdDetail.get(i))).fetch();
@@ -33,4 +36,6 @@ public class LaptopDetailsRepositoryCustom implements com.interviewbit.ironman.c
         }
         return laptopByCity;
     }
+
+
 }
